@@ -1,0 +1,1 @@
+Light.create(state: false)
