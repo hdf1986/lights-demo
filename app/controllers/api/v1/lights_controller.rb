@@ -1,17 +1,28 @@
 class Api::V1::LightsController < ApplicationController
   def index
-    render json: Light.all
+    render_bool Light.first.state
   end
 
   def toggle
-    Light.all.each do |light|
-      light.toggle(:state).save
-    end
-    render json: Light.all
+    Light.first.toggle(:state)
+    render_bool Light.first.state
   end
 
-  def keep_alive
-    Light.all.each(&:touch)
-    render json: Light.all
+  def view
+    Light.first.touch
+    render_bool Light.first.state
+  end
+
+  private 
+  def render_bool b
+    b ? render_false : render_true
+  end
+
+  def render_false
+    render plain: "*" * 100
+  end
+
+  def render_true
+    render plain: "*" * 300
   end
 end
