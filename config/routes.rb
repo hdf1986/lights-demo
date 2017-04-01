@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :lights, only: [:index] do
         collection do
-          put :toggle
-          put :view
+          get :toggle
+          get :view
         end
       end
     end
