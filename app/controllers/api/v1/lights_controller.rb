@@ -4,7 +4,7 @@ class Api::V1::LightsController < ApplicationController
   end
 
   def toggle
-    Light.first.toggle(:state)
+    Light.first.toggle(:state).save
     render_bool Light.first.state
   end
 
