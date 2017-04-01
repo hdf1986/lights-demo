@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources :lights, only: [:index] do
         collection do
           put :toggle
-          put :keep_alive
+          put :view
         end
       end
     end
