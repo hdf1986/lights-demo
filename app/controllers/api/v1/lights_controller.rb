@@ -23,6 +23,6 @@ class Api::V1::LightsController < ApplicationController
   end
 
   def render_true
-    render plain: "*" * 3000
+    render plain: "*" * 400
   end
 end
